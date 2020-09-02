@@ -2,7 +2,7 @@
     "required": true,
     "package": "dan200.computercraft.shared.mixin",
     "compatibilityLevel": "JAVA_8",
-    "mixins": [
+    "client": [
         "MixinHeldItemRenderer",
         "MixinItemFrameEntityRenderer",
         "MixinMinecraftGame",

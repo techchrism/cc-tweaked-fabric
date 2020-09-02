@@ -24,6 +24,7 @@
     "suggests": {
         "modmenu": "*"
     },
+    "accessWidener": "computercraft.accesswidener",
     "environment": "*",
     "entrypoints": {
         "main": [ "dan200.computercraft.ComputerCraft" ],
