@@ -71,7 +71,7 @@ public class TurtleMoveCommand implements ITurtleCommand {
             }
 
             // Check there is space for all the pushable entities to be pushed
-            List<Entity> list = oldWorld.getEntitiesByClass(Entity.class, getBox(collision), x -> x != null && x.isAlive() && x.inanimate);
+            List<Entity> list = oldWorld.getEntities(Entity.class, getBox(collision), x -> x != null && x.isAlive() && x.inanimate);
             for (Entity entity : list) {
                 Box pushedBB = entity.getBoundingBox()
                                      .offset(direction.getOffsetX(), direction.getOffsetY(), direction.getOffsetZ());

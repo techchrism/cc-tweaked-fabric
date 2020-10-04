@@ -93,7 +93,7 @@ public class TurtleSuckCommand implements ITurtleCommand {
                                blockPosition.getX() + 1.0,
                                blockPosition.getY() + 1.0,
                                blockPosition.getZ() + 1.0);
-            List<ItemEntity> list = world.getEntitiesByClass(ItemEntity.class, aabb, EntityPredicates.VALID_ENTITY);
+            List<ItemEntity> list = world.getEntities(ItemEntity.class, aabb, EntityPredicates.VALID_ENTITY);
             if (list.isEmpty()) {
                 return TurtleCommandResult.failure("No items to take");
             }

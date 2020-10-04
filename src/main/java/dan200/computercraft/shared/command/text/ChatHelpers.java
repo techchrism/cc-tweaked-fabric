@@ -68,7 +68,7 @@ public final class ChatHelpers {
             style = style.withColor(Formatting.YELLOW);
         }
         style = style.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command));
-        style = style.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, toolTip));
+        style = style.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, toolTip));
 
         return component.setStyle(style);
     }

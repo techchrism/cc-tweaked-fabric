@@ -36,7 +36,7 @@ import dan200.computercraft.ComputerCraft;
 import dan200.computercraft.shared.computer.core.ComputerFamily;
 import dan200.computercraft.shared.computer.core.ServerComputer;
 
-import net.minecraft.command.argument.serialize.ArgumentSerializer;
+import net.minecraft.command.arguments.serialize.ArgumentSerializer;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.command.ServerCommandSource;
 
@@ -168,7 +168,8 @@ public final class ComputersArgumentType implements ArgumentType<ComputersArgume
         Collection<ServerComputer> unwrap(ServerCommandSource source) throws CommandSyntaxException;
     }
 
-    public static class Serializer implements ArgumentSerializer<ComputersArgumentType> {
+    public static class Serializer implements ArgumentSerializer<ComputersArgumentType>
+    {
 
         @Override
         public void toPacket(@Nonnull ComputersArgumentType arg, @Nonnull PacketByteBuf buf) {

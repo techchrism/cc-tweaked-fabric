@@ -609,7 +609,7 @@ public class TurtleBrain implements ITurtleAccess {
                     }
 
                     Box aabb = new Box(minX, minY, minZ, maxX, maxY, maxZ);
-                    List<Entity> list = world.getEntitiesByClass(Entity.class, aabb, EntityPredicates.EXCEPT_SPECTATOR);
+                    List<Entity> list = world.getEntities(Entity.class, aabb, EntityPredicates.EXCEPT_SPECTATOR);
                     if (!list.isEmpty()) {
                         double pushStep = 1.0f / ANIM_DURATION;
                         double pushStepX = moveDir.getOffsetX() * pushStep;

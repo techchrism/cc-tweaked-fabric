@@ -51,7 +51,7 @@ public final class CommandCopy {
 
     public static Text createCopyText(String text) {
         return new LiteralText(text).fillStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, PREFIX + text))
-                                                          .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,
+                                                          .setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,
                                                                                          new TranslatableText("gui.computercraft.tooltip.copy"))));
     }
 }

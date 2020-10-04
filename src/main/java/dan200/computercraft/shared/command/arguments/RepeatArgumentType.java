@@ -25,8 +25,8 @@ import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 
-import net.minecraft.command.argument.ArgumentTypes;
-import net.minecraft.command.argument.serialize.ArgumentSerializer;
+import net.minecraft.command.arguments.ArgumentTypes;
+import net.minecraft.command.arguments.serialize.ArgumentSerializer;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
@@ -121,7 +121,8 @@ public final class RepeatArgumentType<T, U> implements ArgumentType<List<T>> {
         return this.child.getExamples();
     }
 
-    public static class Serializer implements ArgumentSerializer<RepeatArgumentType<?, ?>> {
+    public static class Serializer implements ArgumentSerializer<RepeatArgumentType<?, ?>>
+    {
         @Override
         public void toPacket(@Nonnull RepeatArgumentType<?, ?> arg, @Nonnull PacketByteBuf buf) {
             buf.writeBoolean(arg.flatten);

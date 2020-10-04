@@ -174,7 +174,7 @@ public abstract class BlockComputerBase<T extends TileComputerBase> extends Bloc
         if (tile instanceof TileComputerBase) {
             TileComputerBase computer = (TileComputerBase) tile;
             LootContext.Builder context = new LootContext.Builder(serverWorld).random(world.random)
-                                                                              .parameter(LootContextParameters.ORIGIN, Vec3d.ofCenter(pos))
+                                                                              .parameter(LootContextParameters.POSITION, pos)
                                                                               .parameter(LootContextParameters.TOOL, player.getMainHandStack())
                                                                               .parameter(LootContextParameters.THIS_ENTITY, player)
                                                                               .parameter(LootContextParameters.BLOCK_ENTITY, tile)

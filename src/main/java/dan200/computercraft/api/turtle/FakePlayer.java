@@ -20,7 +20,7 @@ import io.netty.util.concurrent.GenericFutureListener;
 
 import net.minecraft.block.entity.CommandBlockBlockEntity;
 import net.minecraft.block.entity.SignBlockEntity;
-import net.minecraft.command.argument.EntityAnchorArgumentType;
+import net.minecraft.command.arguments.EntityAnchorArgumentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -78,10 +78,10 @@ public class FakePlayer extends ServerPlayerEntity {
     @Override
     public void onDeath(DamageSource damage) { }
 
-    @Override
+    /*@Override
     public Entity moveToWorld(ServerWorld destination) {
         return this;
-    }
+    }*/
 
     @Override
     public void wakeUp(boolean bl, boolean updateSleepingPlayers) {

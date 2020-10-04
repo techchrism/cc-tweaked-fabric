@@ -29,7 +29,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.RaycastContext;
+import net.minecraft.world.RayTraceContext;
 import net.minecraft.world.World;
 
 public final class WorldUtil {
@@ -63,12 +63,12 @@ public final class WorldUtil {
         // Raycast for blocks
         Entity collisionEntity = getEntity(world);
         collisionEntity.updatePosition(vecStart.x, vecStart.y, vecStart.z);
-        RaycastContext context = new RaycastContext(vecStart,
+        RayTraceContext context = new RayTraceContext(vecStart,
                                                     vecEnd,
-                                                    RaycastContext.ShapeType.COLLIDER,
-                                                    RaycastContext.FluidHandling.NONE,
+                                                    RayTraceContext.ShapeType.COLLIDER,
+                                                    RayTraceContext.FluidHandling.NONE,
                                                     collisionEntity);
-        HitResult result = world.raycast(context);
+        HitResult result = world.rayTrace(context);
         if (result != null && result.getType() == HitResult.Type.BLOCK) {
             distance = vecStart.distanceTo(result.getPos());
             vecEnd = vecStart.add(vecDir.x * distance, vecDir.y * distance, vecDir.z * distance);
@@ -87,7 +87,7 @@ public final class WorldUtil {
 
         Entity closest = null;
         double closestDist = 99.0;
-        List<Entity> list = world.getEntitiesByClass(Entity.class, bigBox, CAN_COLLIDE);
+        List<Entity> list = world.getEntities(Entity.class, bigBox, CAN_COLLIDE);
         for (Entity entity : list) {
             Box littleBox = entity.getBoundingBox();
             if (littleBox.contains(vecStart)) {
@@ -96,7 +96,7 @@ public final class WorldUtil {
                 continue;
             }
 
-            Vec3d littleBoxResult = littleBox.raycast(vecStart, vecEnd)
+            Vec3d littleBoxResult = littleBox.rayTrace(vecStart, vecEnd)
                                              .orElse(null);
             if (littleBoxResult != null) {
                 double dist = vecStart.distanceTo(littleBoxResult);

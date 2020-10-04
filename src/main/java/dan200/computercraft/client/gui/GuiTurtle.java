@@ -46,7 +46,7 @@ public class GuiTurtle extends HandledScreen<ContainerTurtle> {
     @Override
     protected void init() {
         super.init();
-        this.client.keyboard.setRepeatEvents(true);
+        this.client.keyboard.enableRepeatEvents(true);
 
         int termPxWidth = ComputerCraft.terminalWidth_turtle * FixedWidthFontRenderer.FONT_WIDTH;
         int termPxHeight = ComputerCraft.terminalHeight_turtle * FixedWidthFontRenderer.FONT_HEIGHT;
@@ -115,7 +115,7 @@ public class GuiTurtle extends HandledScreen<ContainerTurtle> {
         super.removed();
         this.children.remove(this.terminal);
         this.terminal = null;
-        this.client.keyboard.setRepeatEvents(false);
+        this.client.keyboard.enableRepeatEvents(false);
     }
 
     @Override

@@ -62,7 +62,7 @@ public final class GuiComputer<T extends ContainerComputerBase> extends HandledS
 
     @Override
     protected void init() {
-        this.client.keyboard.setRepeatEvents(true);
+        this.client.keyboard.enableRepeatEvents(true);
 
         int termPxWidth = this.termWidth * FixedWidthFontRenderer.FONT_WIDTH;
         int termPxHeight = this.termHeight * FixedWidthFontRenderer.FONT_HEIGHT;
@@ -123,7 +123,7 @@ public final class GuiComputer<T extends ContainerComputerBase> extends HandledS
         super.removed();
         this.children.remove(this.terminal);
         this.terminal = null;
-        this.client.keyboard.setRepeatEvents(false);
+        this.client.keyboard.enableRepeatEvents(false);
     }
 
     @Override

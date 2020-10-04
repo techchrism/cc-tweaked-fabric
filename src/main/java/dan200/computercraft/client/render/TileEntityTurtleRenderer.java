@@ -124,7 +124,7 @@ public class TileEntityTurtleRenderer extends BlockEntityRenderer<TileTurtle> {
 
             transform.push();
             transform.translate(0.5, 1.2, 0.5);
-            transform.multiply(mc.getEntityRenderDispatcher()
+            transform.multiply(mc.getEntityRenderManager()
                                  .getRotation());
             transform.scale(-0.025f, -0.025f, 0.025f);
 
