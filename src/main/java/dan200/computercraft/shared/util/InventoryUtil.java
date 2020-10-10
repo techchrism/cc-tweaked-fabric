@@ -10,6 +10,8 @@ import javax.annotation.Nonnull;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import net.minecraft.block.BlockState;
+import net.minecraft.block.InventoryProvider;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.Inventory;
@@ -84,6 +86,13 @@ public final class InventoryUtil {
             BlockEntity tileEntity = world.getBlockEntity(pos);
             if (tileEntity instanceof Inventory) {
                 return (Inventory) tileEntity;
+            }
+            else {
+                BlockState state = world.getBlockState(pos);
+                if(state.getBlock() instanceof InventoryProvider)
+                {
+                    return ((InventoryProvider) state.getBlock()).getInventory(state, world, pos);
+                }
             }
         }
 
